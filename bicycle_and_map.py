@@ -1,5 +1,3 @@
-# Alice Jonason
-
 # Required modules
 import json
 import math
