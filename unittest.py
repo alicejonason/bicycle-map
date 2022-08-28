@@ -1,3 +1,6 @@
+# Assumes files in test_cases.zip. 
+
+# Required modules
 import unittest
 import json
 from bicycle_and_map import *
