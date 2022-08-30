@@ -2,7 +2,8 @@
 import json
 import math
 from cmath import pi
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # In terminal: python -m pip install matplotlib
+import sys
 import os.path
 
 #______________________________________________________________________________#
@@ -104,7 +105,7 @@ class Location:
         '''
         while True:
             file_name = input("Enter a file name (including .json extension): ")
-            if not os.path.exists(file_name):
+            if not os.path.exists(os.path.join(sys.path[0], file_name)):
                 print("File does not exist. Try another file.")
             else:
                 return file_name
@@ -115,7 +116,7 @@ class Location:
         Assumes that the file has extension .json and that 
         '''
         try:
-            with open(self.file_name, 'r') as handle:
+            with open(os.path.join(sys.path[0], self.file_name), 'r') as handle:
                 return json.load(handle)['features']
         except KeyError:
             raise Exception("File does not have 'feature' parameter.")
